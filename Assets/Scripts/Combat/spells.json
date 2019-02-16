@@ -1,0 +1,10 @@
+{
+	"spells":[
+		{
+			"spellId":1,
+			"spellName":"Firebolt",
+			"lower":5,
+			"higher":15
+		}
+	]
+}
