@@ -4,7 +4,8 @@
 			"spellId":1,
 			"spellName":"Firebolt",
 			"lower":5,
-			"higher":15
+			"higher":15,
+			"level":1
 		}
 	]
 }
