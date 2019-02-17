@@ -6,6 +6,13 @@
 			"lower":5,
 			"higher":15,
 			"level":1
+		},
+		{
+			"spellId":2,
+			"spellName":"Fireball",
+			"lower":20,
+			"higher":35,
+			"level":2
 		}
 	]
 }

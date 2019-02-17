@@ -14,7 +14,6 @@ public class CharacterSheet : MonoBehaviour {
     public int currentHealth;
     public SpellSlots spellSlots;
     public int level = 1;
-
     
     private List<Spell> spells;
     
@@ -32,11 +31,8 @@ public class CharacterSheet : MonoBehaviour {
             healthText.text = currentHealth.ToString();
         }
 
-
         Debug.Log(File.Exists(Application.dataPath + "/scripts/combat/spells.json"));
         loadSpells();
-              
-        
     }
 
     public void levelUp()
@@ -93,7 +89,8 @@ public class CharacterSheet : MonoBehaviour {
                     activeSlot = level;
                 }
             }
-            activeSlot.groupSpells.Add(Menu.menu.createSpell(temp.name, temp.Id));
+            Debug.Log(temp.name);
+            activeSlot.groupSpells.Add(Menu.menu.createSpell(temp.name, temp.Id, temp.level));
             
             spellList.Add(temp);
         }

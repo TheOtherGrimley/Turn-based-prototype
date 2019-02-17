@@ -8,10 +8,11 @@ public class Menu : MonoBehaviour {
     public GameObject spellButtonPrefab;
     public GameObject spellSlotButton;
     public Transform spellParent;
+    public List<SpellLevel> spellLevels = new List<SpellLevel>();
 
     private List<GameObject> menuLayers = new List<GameObject>();
+    private int[] offsets = { 0, 0, 0, 0, 0, 0, 0 };
 
-    public List<SpellLevel> spellLevels = new List<SpellLevel>();
 
     // Use this for initialization
     void Start () {
@@ -52,6 +53,7 @@ public class Menu : MonoBehaviour {
         GameObject slot = Instantiate(spellSlotButton, spellParent);
         slot.name = level.ToString();
         slot.transform.GetChild(0).GetComponent<Text>().text = "Level " + slot.name + " spells";
+        slot.GetComponent<RectTransform>().anchoredPosition = new Vector2(206, -105 + (30*level));
         slot.GetComponent<SpellButton>().levelSwitch = level;
         temp_slot.level = level;
         temp_slot.slotButton = slot;
@@ -59,12 +61,15 @@ public class Menu : MonoBehaviour {
         spellLevels.Add(temp_slot);
     }
 
-    public GameObject createSpell(string name, int id)
+    public GameObject createSpell(string name, int id, int level)
     {
         GameObject SpellButton = Instantiate(Menu.menu.spellButtonPrefab, Menu.menu.spellParent);
         SpellButton.SetActive(false);
         SpellButton.name = name;
+        SpellButton.transform.GetChild(0).GetComponent<Text>().text = name;
         SpellButton.GetComponent<SpellButton>().spellId = id;
+        SpellButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(206, -75 + 30*offsets[level]);
+        offsets[level] += 1;
         return SpellButton;
     }
 
