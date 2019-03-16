@@ -15,7 +15,7 @@ public class Menu : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         if (Menu.menu == null)
             Menu.menu = this;
 
